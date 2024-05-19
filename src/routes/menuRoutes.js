@@ -7,9 +7,9 @@ const router = express.Router();
 
 // Ruta para crear un nuevo menú
 router.post('/add', authMiddleware, async (req, res) => {
-  const { name, description, price } = req.body;
+  const { name, description, price, categoria, imagen } = req.body;
   try {
-    const menu = new Menu({ name, description, price });
+    const menu = new Menu({ name, description, price, categoria, imagen });
     await menu.save();
     res.status(201).json({ message: 'Menú creado exitosamente' });
   } catch (err) {

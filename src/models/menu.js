@@ -13,6 +13,14 @@ const menuSchema = new mongoose.Schema({
   price: {
     type: Number,
     required: true
+  },
+  categoria: {
+    type: String,
+    required: true
+  },
+  imagen: {
+    type: String,
+    required: true
   }
 });
 
