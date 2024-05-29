@@ -1,3 +1,4 @@
+// src/routes/menuRoutes.js
 const express = require('express');
 const Menu = require('../models/menu');
 const authMiddleware = require('../middlewares/authMiddleware');
@@ -60,3 +61,4 @@ router.delete('/delete/:id', authMiddleware, async (req, res) => {
 });
 
 module.exports = router;
+
