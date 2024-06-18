@@ -1,10 +1,12 @@
 // src/app.js
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const authRoutes = require('./src/routes/authRoutes'); // Asegúrate de que la ruta es correcta
 const menuRoutes = require('./src/routes/menuRoutes'); // Asegúrate de que la ruta es correcta
 const authMiddleware = require('./src/middlewares/authMiddleware');
+const orderRoutes = require('./src/routes/orderRoutes');
 
 const app = express();
 app.use(cors());
@@ -28,6 +30,9 @@ app.get('/', (req, res) => {
 app.use('/api/auth', authRoutes);
 // Rutas de menús
 app.use('/api/menus', menuRoutes);
+
+app.use('/api/orders', orderRoutes);
+
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
