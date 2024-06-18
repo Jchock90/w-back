@@ -4,6 +4,13 @@ const jwt = require('jsonwebtoken');
 
 const authMiddleware = (req, res, next) => {
   const authHeader = req.headers.authorization;
+
+  // Verificar si la solicitud es para obtener todos los menús
+  if (req.baseUrl === '/api/menus' && req.method === 'GET') {
+    // Permitir acceso público a la ruta que obtiene todos los menús
+    return next();
+  }
+
   if (!authHeader) {
     return res.status(401).json({ message: 'Acceso denegado. No se proporcionó ningún token.' });
   }
