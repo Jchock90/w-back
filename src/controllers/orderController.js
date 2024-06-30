@@ -4,7 +4,7 @@ const Order = require('../models/Order');
 
 exports.addOrder = async (req, res) => {
   try {
-    const order = new Order(req.body);
+    const order = new Order({ ...req.body, source: req.body.source });
     await order.save();
     res.status(201).json(order);
   } catch (error) {

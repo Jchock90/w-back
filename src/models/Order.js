@@ -11,7 +11,8 @@ const orderSchema = new mongoose.Schema({
     }
   ],
   total: Number,
-  date: { type: Date, default: Date.now }
+  date: { type: Date, default: Date.now },
+  source: String  // Añadir este campo
 });
 
 module.exports = mongoose.model('Order', orderSchema);
