@@ -1,6 +1,8 @@
+// src/models/CashRegister.js
+
 const mongoose = require('mongoose');
 
-const orderSchema = new mongoose.Schema({
+const cashRegisterSchema = new mongoose.Schema({
   items: [
     {
       name: String,
@@ -11,8 +13,7 @@ const orderSchema = new mongoose.Schema({
   total: Number,
   date: { type: Date, default: Date.now },
   source: String,
-  orderNumber: { type: Number, unique: true },
-  printed: { type: Boolean, default: false } // Nuevo campo
+  orderNumber: { type: Number, unique: true }
 });
 
-module.exports = mongoose.model('Order', orderSchema);
+module.exports = mongoose.model('CashRegister', cashRegisterSchema);
