@@ -1,3 +1,5 @@
+// src/routes/orderRoutes.js
+
 const express = require('express');
 const router = express.Router();
 const { addOrder, getOrders, deleteOrder, markAsPrinted, closeCashRegister } = require('../controllers/orderController'); // Importa todas las funciones necesarias
