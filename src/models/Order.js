@@ -11,7 +11,10 @@ const orderSchema = new mongoose.Schema({
     }
   ],
   total: Number,
-  date: { type: Date, default: Date.now }
+  date: { type: Date, default: Date.now },
+  source: String, // Añadir este campo
+  orderNumber: { type: Number, unique: true } // Añadir el campo orderNumber
 });
 
 module.exports = mongoose.model('Order', orderSchema);
+
