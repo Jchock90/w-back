@@ -1,7 +1,7 @@
 // src/routes/authRoutes.js
 
 const express = require('express');
-const User = require('../models/user');
+const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 
 const router = express.Router();
@@ -14,7 +14,7 @@ router.post('/register', async (req, res) => {
     await user.save();
     res.status(201).json({ message: 'Usuario registrado exitosamente' });
   } catch (err) {
-    res.status(400).json({ message: 'Error al registrar el usuario', error: err });
+    res.status(400).json({ message: 'Intentalo de nuevo', error: err });
   }
 });
 

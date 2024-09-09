@@ -61,4 +61,3 @@ router.delete('/delete/:id', authMiddleware, async (req, res) => {
 });
 
 module.exports = router;
-

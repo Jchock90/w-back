@@ -1,5 +1,3 @@
-// src/controllers/orderController.js
-
 const fs = require('fs');
 const path = require('path');
 const Order = require('../models/Order');
@@ -11,9 +9,9 @@ exports.addOrder = async (req, res) => {
 
     const order = new Order({
       ...req.body,
-      source: req.body.source,
+      source: req.body.source.replace(/consumers(\d+)/i, 'Mesa $1'), // Reemplaza consumers por Mesa, asegurando que sea case-insensitive
       orderNumber: newOrderNumber,
-      printed: false, // Añadimos el campo printed
+      printed: false,
     });
 
     await order.save();
@@ -84,6 +82,6 @@ exports.closeCashRegister = async (req, res) => {
     console.log(`Resumen de ventas guardado en: ${filePath}`);
     res.status(200).json({ message: 'Caja cerrada exitosamente', filePath });
   } catch (error) {
-    res.status500().json({ message: 'Error al cerrar la caja', error });
+    res.status(500).json({ message: 'Error al cerrar la caja', error });
   }
 };
