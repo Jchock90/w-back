@@ -1,11 +1,9 @@
-// src/routes/menuRoutes.js
 const express = require('express');
 const Menu = require('../models/menu');
 const authMiddleware = require('../middlewares/authMiddleware');
 
 const router = express.Router();
 
-// Ruta para crear un nuevo menú
 router.post('/add', authMiddleware, async (req, res) => {
   const { name, description, price, categoria, imagen } = req.body;
   try {
@@ -17,7 +15,6 @@ router.post('/add', authMiddleware, async (req, res) => {
   }
 });
 
-// Ruta para obtener todos los menús
 router.get('/', authMiddleware, async (req, res) => {
   try {
     const menus = await Menu.find();
@@ -27,7 +24,6 @@ router.get('/', authMiddleware, async (req, res) => {
   }
 });
 
-// Nueva ruta para editar un menú
 router.put('/edit/:id', authMiddleware, async (req, res) => {
   const { id } = req.params;
   const { name, description, price, categoria, imagen } = req.body;
@@ -46,7 +42,6 @@ router.put('/edit/:id', authMiddleware, async (req, res) => {
   }
 });
 
-// Nueva ruta para eliminar un menú
 router.delete('/delete/:id', authMiddleware, async (req, res) => {
   const { id } = req.params;
   try {

@@ -1,10 +1,8 @@
-// src/app.js
-
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const authRoutes = require('./src/routes/authRoutes'); // Asegúrate de que la ruta es correcta
-const menuRoutes = require('./src/routes/menuRoutes'); // Asegúrate de que la ruta es correcta
+const authRoutes = require('./src/routes/authRoutes');
+const menuRoutes = require('./src/routes/menuRoutes'); 
 const authMiddleware = require('./src/middlewares/authMiddleware');
 const orderRoutes = require('./src/routes/orderRoutes');
 
@@ -26,9 +24,8 @@ app.get('/', (req, res) => {
   res.send('¡Backend MERN funcionando correctamente!');
 });
 
-// Rutas de autenticación
 app.use('/api/auth', authRoutes);
-// Rutas de menús
+
 app.use('/api/menus', menuRoutes);
 
 app.use('/api/orders', orderRoutes);

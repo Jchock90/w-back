@@ -1,11 +1,9 @@
-// src/routes/authRoutes.js
 const express = require('express');
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 
 const router = express.Router();
 
-// Ruta para registrar un nuevo usuario
 router.post('/register', async (req, res) => {
   const { username, password } = req.body;
   try {
@@ -17,7 +15,6 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// Ruta para autenticar un usuario
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
   try {
